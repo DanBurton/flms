@@ -6,12 +6,14 @@ module Flms
     end
 
     def attributes(scroll_offset = 0)
-      attributes = { id: @layer.name }
-      attributes.merge keyframe_data_hash(scroll_offset)
-    end
-
-    def image_div_attributes
-      { background_image: "url:(#{src})", background_size: @layer.image_display_mode }
+      attributes = keyframe_data_hash(scroll_offset)
+      attributes[:id] = @layer.name
+      attributes[:style] += """
+        background-image: url(#{src});
+        background-size: #{@layer.image_display_mode};
+        background-repeat: no-repeat;
+      """
+      attributes
     end
 
   end
