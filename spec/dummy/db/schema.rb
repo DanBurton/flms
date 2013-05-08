@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20130508002138) do
     t.string   "z_index",            :default => "0",       :null => false
     t.text     "embed_code"
     t.boolean  "active",             :default => true
-    t.string   "image_display_mode", :default => "contain"
+    t.string   "image_display_mode", :default => "cover"
   end
 
   add_index "flms_layers", ["block_id"], :name => "index_flms_layers_on_block_id"
