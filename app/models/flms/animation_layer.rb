@@ -1,18 +1,17 @@
 module Flms
-  class ImageLayer < Layer
+  class AnimationLayer < Layer
     attr_accessible :image, :image_cache,
-                    :image_width, :image_height,
-					:image_display_mode
-
-    IMAGE_DISPLAY_MODES = %w(contain cover)
-
-    validates_inclusion_of :image_display_mode, in: IMAGE_DISPLAY_MODES
+                    :frame_count, :frame_rate,
+                    :image_width, :image_height
 
     mount_uploader :image, ImageUploader
     before_save :retain_geometry
 
+    validates_numericality_of :frame_count, greater_than_or_equal_to: 1
+    validates_numericality_of :frame_rate, greater_than_or_equal_to: 1
+
     def view_object
-      @view_object ||= Flms::ImageLayerViewObject.new(self)
+      @view_object ||= Flms::AnimationLayerViewObject.new(self)
     end
 
     def uploaded_filename
@@ -30,4 +29,3 @@ module Flms
     end
   end
 end
-

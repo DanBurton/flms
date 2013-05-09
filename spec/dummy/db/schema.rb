@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508002138) do
+ActiveRecord::Schema.define(:version => 20130508174355) do
 
   create_table "flms_blocks", :force => true do |t|
     t.string   "name"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130508002138) do
     t.string   "name"
     t.integer  "block_id"
     t.string   "type"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "image"
     t.string   "text"
     t.float    "font_size"
@@ -64,9 +64,13 @@ ActiveRecord::Schema.define(:version => 20130508002138) do
     t.boolean  "dom_remove",         :default => true
     t.string   "header"
     t.text     "body"
-    t.string   "z_index",            :default => "0",       :null => false
+    t.string   "z_index",            :default => "0",     :null => false
     t.text     "embed_code"
     t.boolean  "active",             :default => true
+    t.integer  "frame_rate"
+    t.integer  "frame_count"
+    t.integer  "image_width"
+    t.integer  "image_height"
     t.string   "image_display_mode", :default => "cover"
   end
 
