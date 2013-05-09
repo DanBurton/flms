@@ -12,15 +12,12 @@ module Flms
         background-repeat: no-repeat;
         width: 100%;
         height: 100%;
-        margin: auto auto;
       """
     end
 
     def attributes(scroll_offset = 0)
       attributes = keyframe_data_hash(scroll_offset)
       attributes[:id] = @layer.name
-      # attributes[:style] += background_style
-      attributes[:style] += "text-align: center;"
       attributes
     end
 
